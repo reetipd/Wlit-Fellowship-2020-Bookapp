@@ -3,9 +3,12 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var bodyParser = require('body-parser');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+const books = require('./resources/books'); //hamle rakheko list of books bhako file
+var booksRouter = require('./routes/books'); //importing the router-add/smthn else from routes
 
 var app = express();
 
@@ -19,8 +22,18 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+//body-parser
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+ 
+// parse application/json
+app.use(bodyParser.json())
+
 app.use('/', indexRouter);
+app.use('/books',booksRouter);  //books/add or books/smthelse auda will use this path
 app.use('/users', usersRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
