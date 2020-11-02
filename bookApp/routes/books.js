@@ -54,7 +54,7 @@ router.post('/edit/:_id/editsave', function (req, res, next) {
         }
     })
 
-    books.splice(req.params._id-1, 1, req.body); //after deleting kunai book index ma affect garira cha
+    //books.splice(req.params._id-1, 1, req.body); //after deleting kunai book index ma affect garira cha
 
     
     res.redirect('/');
