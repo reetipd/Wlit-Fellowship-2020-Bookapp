@@ -54,7 +54,7 @@ router.post('/edit/:_id/editsave', function (req, res, next) {
     //         book.genre = req.body.genre;
     //     }
     // });
-    const indexId = books.findIndex((x) => x._id == req.params._id );
+    const indexId = books.findIndex((x) => x._id === req.params._id );
     //console.log(indexId);
 
     books.splice(indexId, 1, {...req.body,_id:req.params._id});
