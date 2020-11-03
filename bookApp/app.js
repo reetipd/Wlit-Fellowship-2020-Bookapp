@@ -9,8 +9,16 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const books = require('./resources/books'); //hamle rakheko list of books bhako file
 var booksRouter = require('./routes/books'); //importing the router-add/smthn else from routes
+var mongoose = require('mongoose');
 
 var app = express();
+
+mongoose.connect('mongodb://localhost/bookDB',   //database name: bookDB
+{ useNewUrlParser: true, useUnifiedTopology: true }, 
+() => { console.log('connected to db') });
+
+
+//bookDB vanne db banaune
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

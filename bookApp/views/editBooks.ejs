@@ -7,7 +7,7 @@
   </head>
   <body>
     <h1><%= title %></h1>
-    <form method="POST" action="/books/edit/<%= book._id %>/editsave">
+    <form method="POST" action="/books/saveedit/<%= book._id %>">
         <div class="form-group">
             <label for="name">Title:</label>
             <input type="string" class="form-control" id="title" name="title" placeholder="Enter title" value = "<%= book.title %>">
