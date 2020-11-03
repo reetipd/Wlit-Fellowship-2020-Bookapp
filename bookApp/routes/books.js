@@ -40,24 +40,25 @@ router.get('/edit/:_id', function(req,res) {
 });
 
 router.post('/edit/:_id/editsave', function (req, res, next) {
-    console.log('In editsave function...', req.body);
+    //console.log('In editsave function...', req.body);
     //const editBook = req.body;
-    console.log(req.params._id)
-    books.forEach((book) => {
-        if(book._id === req.params._id){
-            console.log(book._id);
-            //console.log(req.body.title)
-            book._id = req.params._id;
-            book.title = req.body.title;
-            book.author = req.body.author;
-            book.description = req.body.description;
-            book.genre = req.body.genre;
-        }
-    })
+    // console.log(req.params._id)
+    // books.forEach((book) => {
+    //     if(book._id === req.params._id){
+    //         console.log(book._id);
+    //         //console.log(req.body.title)
+    //         book._id = req.params._id;
+    //         book.title = req.body.title;
+    //         book.author = req.body.author;
+    //         book.description = req.body.description;
+    //         book.genre = req.body.genre;
+    //     }
+    // });
+    const indexId = books.findIndex((x) => x._id == req.params._id );
+    //console.log(indexId);
 
-    
+    books.splice(indexId, 1, {...req.body,_id:req.params._id});
 
-    
     res.redirect('/');
     //res.send("Save");
 });
