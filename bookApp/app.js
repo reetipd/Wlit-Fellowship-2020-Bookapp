@@ -17,6 +17,8 @@ mongoose.connect('mongodb://localhost/bookDB',   //database name: bookDB
 { useNewUrlParser: true, useUnifiedTopology: true }, 
 () => { console.log('connected to db') });
 
+//mongoose.createConnection('mongodb://localhost/userDB',{ useNewUrlParser: true, useUnifiedTopology: true }, () => {console.log('userdb')});
+
 
 //bookDB vanne db banaune
 
